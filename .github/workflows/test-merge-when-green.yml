@@ -1,4 +1,4 @@
-name: Test Edge Cases
+name: Merge when green
 
 on:
   push:
