@@ -15,4 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Merge when green
-        run: echo "This is the merge-when-green job."
+        run: |
+          set +x
+          main_head_sha=$(git show-ref --heads -s main)
+          echo "main_head_sha: " $main_head_sha
