@@ -1,9 +1,7 @@
-name: Test Edge Cases
+name: Merge when green
 
 on:
-  push:
-    branches:
-      - main
+  push
 
 jobs:
   do-some-build-stuff:
@@ -16,5 +14,12 @@ jobs:
     needs: do-some-build-stuff
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
       - name: Merge when green
-        run: echo "This is the merge-when-green job."
+        run: |
+          set +x
+          echo "Running git fetch"
+          git fetch origin main
+          echo "Running git show-ref"
+          main_head_sha=$(git show-ref -s origin/main)
+          echo "main_head_sha: " $main_head_sha
