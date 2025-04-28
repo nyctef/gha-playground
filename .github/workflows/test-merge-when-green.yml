@@ -1,0 +1,20 @@
+name: Test Edge Cases
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  do-some-build-stuff:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Wait for 20 seconds
+        run: sleep 20
+
+  merge-when-green:
+    needs: do-some-build-stuff
+    runs-on: ubuntu-latest
+    steps:
+      - name: Merge when green
+        run: echo "This is the merge-when-green job."
