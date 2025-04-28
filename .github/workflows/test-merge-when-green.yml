@@ -1,9 +1,7 @@
 name: Merge when green
 
 on:
-  push:
-    branches:
-      - main
+  push
 
 jobs:
   do-some-build-stuff:
