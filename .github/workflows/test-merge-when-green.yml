@@ -14,6 +14,7 @@ jobs:
     needs: do-some-build-stuff
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
       - name: Merge when green
         run: |
           set +x
