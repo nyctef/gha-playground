@@ -18,6 +18,8 @@ jobs:
       - name: Merge when green
         run: |
           set +x
+          echo "Running git fetch"
           git fetch origin main
-          main_head_sha=$(git show-ref --heads -s main)
+          echo "Running git show-ref"
+          main_head_sha=$(git show-ref -s origin/main)
           echo "main_head_sha: " $main_head_sha
